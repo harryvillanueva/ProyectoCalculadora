@@ -1,6 +1,7 @@
 package main;
 
 import input.Input;
+import math.NumeroComplejo;
 import math.Operaciones;
 import math.Vector;
 import output.Output;
@@ -12,11 +13,15 @@ public class Main {
     final static int MULTIPLICAR =3;
     final static int DIVIDIR =4;
     final static int SUMAR_VECTORES =5;
-    final static int SALIR =6;
+    final static int SUMAR_NUMEROS_COMPLEJOS = 6;
+    final static int SALIR =7;
     private static int opcionMenu;
-    private static int operando1;
-    private static int operando2;
-
+    // private static int operando1;
+   // private static int operando2;
+    private static int[] listaOperandos;
+    private static Vector[] listaVector;
+    private static NumeroComplejo[] listaNumComplejo;
+    private static Float[] listaFloat;
     private static Input input ;
     private static Output output ;
     private static Operaciones operacion ;
@@ -27,6 +32,10 @@ public class Main {
         input = new Input();
         output = new Output();
         operacion = new Operaciones();
+        listaOperandos= new int[2];
+        listaVector = new Vector[2];
+        listaFloat = new Float[2];
+        listaNumComplejo = new NumeroComplejo[2];
 
         boolean usuarioQuiereQuedarse = true;
         do {
@@ -56,7 +65,7 @@ public class Main {
 
     private static void obtenerOpcionMenu() {
         Input input = new Input();
-        opcionMenu = input.obtenerOpcionMenu();
+        opcionMenu = input.obtenerOpcion();
     }
     private static boolean validarOpcionMenu() {
         Validador validador = new Validador();
@@ -65,9 +74,9 @@ public class Main {
     }
 
     private static void agregarVector(){
-        Vector v1 = crearVector();
-        Vector v2 = crearVector();
-        Vector v3 = operacion.sumar(v1,v2);
+        listaVector[0] = crearVector();
+        listaVector[1] = crearVector();
+        Vector v3 = operacion.sumar(listaVector[0],listaVector[1]);
         output.mostrarVector(v3);
 
     }
@@ -75,13 +84,40 @@ public class Main {
     private static Vector crearVector(){
 
         output.pedirVector();
-        float c1 = input.obtenerComponenteDelVector();
+         listaFloat[0] = input.obtenerComponenteDelVector();
         output.pedirVector();
-        float c2 = input.obtenerComponenteDelVector();
+        listaFloat[1] = input.obtenerComponenteDelVector();
 
-        Vector vector = new Vector(c1,c2);
+        Vector vector = new Vector(listaFloat[0],listaFloat[1]);
         return vector;
 
+    }
+
+    private static void agregarNumeroComplejo(){
+        listaNumComplejo[0] = crearNumComplejo();
+        listaNumComplejo[1] = crearNumComplejo();
+        NumeroComplejo c3 = operacion.sumar(listaNumComplejo[0],listaNumComplejo[1]);
+        output.mostrarNumeroComplejo(c3);
+
+    }
+
+    private static NumeroComplejo crearNumComplejo(){
+
+        output.pedirNumReal();
+        listaFloat[0] = input.obtenerNumeroComplejo();
+        output.pedirNumImaginario();
+        listaFloat[1] = input.obtenerNumeroComplejo();
+
+        NumeroComplejo numComplex = new NumeroComplejo(listaFloat[0],listaFloat[1]);
+        return numComplex;
+
+    }
+
+    private static void pedirDatos(){
+        output.pedirOperando();
+        listaOperandos[0]=input.obtenerOpcion();
+        output.pedirOperando();
+        listaOperandos[1] =input.obtenerOpcion();
     }
 
 
@@ -93,37 +129,29 @@ public class Main {
         switch (opcionMenu){
             case SUMAR ->
             {
-                output.pedirOperando();
-                operando1=input.obtenerOperando();
-                output.pedirOperando();
-                operando2 =input.obtenerOperando();
-                output.mostrarResultado(operacion.sumar(operando1,operando2));
+                pedirDatos();
+                output.mostrarResultado(operacion.sumar(listaOperandos[0],listaOperandos[1]));
             }
             case RESTAR -> {
-                output.pedirOperando();
-                operando1=input.obtenerOperando();
-                output.pedirOperando();
-                operando2 =input.obtenerOperando();
-                output.mostrarResultado(operacion.restar(operando1,operando2));}
+                pedirDatos();
+                output.mostrarResultado(operacion.restar(listaOperandos[0],listaOperandos[1]));}
             case MULTIPLICAR -> {
-                output.pedirOperando();
-                operando1=input.obtenerOperando();
-                output.pedirOperando();
-                operando2 =input.obtenerOperando();
-                output.mostrarResultado(operacion.multiplicar(operando1,operando2));}
+                pedirDatos();
+                output.mostrarResultado(operacion.multiplicar(listaOperandos[0],listaOperandos[1]));}
             case DIVIDIR ->
             {
-                output.pedirOperando();
-                operando1=input.obtenerOperando();
-                output.pedirOperando();
-                operando2 =input.obtenerOperando();
-                if (operando2 ==0)
+                pedirDatos();
+                if (listaOperandos[1] ==0)
                     output.mostrarNoDivisibleCero();
                 else
-                    output.mostrarResultado(operacion.dividir(operando1,operando2));
+                    output.mostrarResultado(operacion.dividir(listaOperandos[0],listaOperandos[1]));
             }
             case SUMAR_VECTORES -> {
                 agregarVector();
+            }
+
+            case SUMAR_NUMEROS_COMPLEJOS -> {
+                agregarNumeroComplejo();
             }
 
 
