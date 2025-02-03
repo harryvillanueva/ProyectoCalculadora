@@ -1,6 +1,7 @@
 package output;
 
 
+import math.NumeroComplejo;
 import math.Vector;
 
 public class Output {
@@ -16,7 +17,8 @@ public class Output {
                 3.Multiplicar
                 4.Dividir
                 5.sumar dos vectores
-                6.Salir
+                6.sumar numeros complejos
+                7.Salir
                 """);
     }
 
@@ -40,7 +42,19 @@ public class Output {
         System.out.println(v3);
     }
 
+    public void mostrarNumeroComplejo(NumeroComplejo c3) {
+        System.out.println(c3);
+    }
+
     public void pedirVector() {
         System.out.println("ingrese un componente del vector");
+    }
+
+    public void pedirNumReal() {
+        System.out.println("ingrese numero real");
+    }
+
+    public void pedirNumImaginario() {
+        System.out.println("ingrese numero imaginario");
     }
 }

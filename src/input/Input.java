@@ -4,18 +4,26 @@ import java.util.Scanner;
 
 public class Input {
 
+    private int numero;
 
-    public int obtenerOpcionMenu() {
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+    public int obtenerOpcion(){
+        obtenerOpcionMenu();
+        return numero;
     }
-    public int obtenerOperando() {
+
+
+    private void obtenerOpcionMenu() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+         numero =scanner.nextInt();
     }
 
 
     public float obtenerComponenteDelVector() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextFloat();
+    }
+
+    public float obtenerNumeroComplejo() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextFloat();
     }
