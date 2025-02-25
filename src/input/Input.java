@@ -10,7 +10,7 @@ public class Input {
         obtenerOpcionMenu();
         return numero;
     }
-
+//comentario
 
     private void obtenerOpcionMenu() {
         Scanner scanner = new Scanner(System.in);
