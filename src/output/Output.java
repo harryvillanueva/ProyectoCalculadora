@@ -4,7 +4,7 @@ package output;
 import math.NumeroComplejo;
 import math.Vector;
 
-public class Output {
+public class Output implements  OutputInterface{
 
     public void mostrarMenu(){
 

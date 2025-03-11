@@ -2,7 +2,7 @@ package input;
 
 import java.util.Scanner;
 
-public class Input {
+public class Input implements InputInterface{
 
     private int numero;
 

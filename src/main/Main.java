@@ -1,10 +1,14 @@
 package main;
 
 import input.Input;
+import input.InputDato;
+import input.InputInterface;
 import math.NumeroComplejo;
 import math.Operaciones;
 import math.Vector;
 import output.Output;
+import output.OutputDato;
+import output.OutputInterface;
 import validator.Validador;
 
 public class Main {
@@ -16,21 +20,20 @@ public class Main {
     final static int SUMAR_NUMEROS_COMPLEJOS = 6;
     final static int SALIR =7;
     private static int opcionMenu;
-    // private static int operando1;
-   // private static int operando2;
+
     private static int[] listaOperandos;
     private static Vector[] listaVector;
     private static NumeroComplejo[] listaNumComplejo;
     private static Float[] listaFloat;
-    private static Input input ;
-    private static Output output ;
+    private static InputInterface input ;
+    private static OutputInterface output ;
     private static Operaciones operacion ;
 
 
     public static void main(String[] args) {
 
-        input = new Input();
-        output = new Output();
+        input = new InputDato();
+        output = new OutputDato();
         operacion = new Operaciones();
         listaOperandos= new int[2];
         listaVector = new Vector[2];
@@ -118,6 +121,7 @@ public class Main {
         listaOperandos[0]=input.obtenerOpcion();
         output.pedirOperando();
         listaOperandos[1] =input.obtenerOpcion();
+
     }
 
 
