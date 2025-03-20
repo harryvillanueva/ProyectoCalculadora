@@ -3,7 +3,7 @@ package output;
 import math.NumeroComplejo;
 import math.Vector;
 
-public class OutputDato implements OutputInterface{
+public class OutputRandom implements OutputInterface{
 
     public void pedirOperando(){
 
@@ -38,6 +38,11 @@ public class OutputDato implements OutputInterface{
     }
 
     public void pedirNumImaginario() {
+
+    }
+
+    @Override
+    public void mostrarMenu() {
 
     }
 }

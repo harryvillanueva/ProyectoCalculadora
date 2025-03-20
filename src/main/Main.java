@@ -1,13 +1,13 @@
 package main;
 
-import input.Input;
-import input.InputDato;
+import input.InputCli;
+import input.InputGui;
+import input.InputRandom;
 import input.InputInterface;
-import math.NumeroComplejo;
-import math.Operaciones;
-import math.Vector;
-import output.Output;
-import output.OutputDato;
+import math.*;
+import output.OutputCli;
+import output.OutputGui;
+import output.OutputRandom;
 import output.OutputInterface;
 import validator.Validador;
 
@@ -27,14 +27,14 @@ public class Main {
     private static Float[] listaFloat;
     private static InputInterface input ;
     private static OutputInterface output ;
-    private static Operaciones operacion ;
+    private static OperacionesGlobales operacion ;
 
 
     public static void main(String[] args) {
 
-        input = new InputDato();
-        output = new OutputDato();
-        operacion = new Operaciones();
+        input = new InputCli();
+        output = new OutputCli();
+        operacion = new OperacionesSucesivas();
         listaOperandos= new int[2];
         listaVector = new Vector[2];
         listaFloat = new Float[2];
@@ -62,13 +62,13 @@ public class Main {
     }
 
     private static void mostrarMenu() {
-        Output output = new Output();
+
         output.mostrarMenu();
     }
 
     private static void obtenerOpcionMenu() {
-        Input input = new Input();
-        opcionMenu = input.obtenerOpcion();
+
+        opcionMenu = input.obtenerOpcionMenu();
     }
     private static boolean validarOpcionMenu() {
         Validador validador = new Validador();

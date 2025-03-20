@@ -12,4 +12,6 @@ public interface OutputInterface {
     void pedirVector();
     void pedirNumReal();
     void pedirNumImaginario();
+    void mostrarMenu();
+
 }

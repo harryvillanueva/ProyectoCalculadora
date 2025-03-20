@@ -1,8 +1,6 @@
 package math;
 
-public class Operaciones extends OperacionesGlobales {
-
-
+public class OperacionesSucesivas extends OperacionesGlobales {
     public Vector sumar(Vector v1, Vector v2){
         Vector resultado;
         float resultadoC1 = sumar(v1.getComponente1(),v2.getComponente1());
@@ -26,19 +24,37 @@ public class Operaciones extends OperacionesGlobales {
     @Override
     public int multiplicar(int multiplicando, int multiplicador){
 
-        System.out.println("con multiplicacion normal");
+        System.out.println("con suma suseciva");
+        var producto = 0;
 
+        for (int i = 0 ; i < multiplicador; i++){
 
-        return multiplicando*multiplicador;
+            producto+=multiplicando ;
+
+        }
+
+        return producto;
     }
 
+    @Override
     public int dividir(int dividendo, int divisor){
 
+        var division = dividendo;
+        var cociente = 0;
 
-        return dividendo/divisor;
 
 
+        for (int i = 0 ; i < dividendo ; i++){
+            division-=divisor;
 
+            if (division>=0){
+                cociente++;
+
+
+            }
+
+        }
+        return cociente;
 
     }
 }

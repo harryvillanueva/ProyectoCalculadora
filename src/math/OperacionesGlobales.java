@@ -1,6 +1,6 @@
 package math;
 
-public class OperacionesGlobales {
+public abstract class OperacionesGlobales {
 
     public int sumar(int sumando1, int sumando2){
         return sumando1+sumando2;
@@ -14,39 +14,12 @@ public class OperacionesGlobales {
         return minuendo-sustraendo;
     }
 
-    public int multiplicar(int multiplicando, int multiplicador){
 
-        var producto = 0;
-
-        for (int i = 0 ; i < multiplicador; i++){
-
-            producto+=multiplicando ;
-
-        }
-
-        return producto;
-    }
-    public int dividir(int dividendo, int divisor){
-
-        var division = dividendo;
-        var cociente = 0;
+   public abstract NumeroComplejo sumar(NumeroComplejo v1, NumeroComplejo v2);
+   public abstract Vector sumar(Vector v1, Vector v2);
+   public abstract  int multiplicar(int multiplicando, int multiplicador);
+   public abstract  int dividir(int dividendo, int divisor);
 
 
 
-        for (int i = 0 ; i < dividendo ; i++){
-            division-=divisor;
-
-            if (division>=0){
-                cociente++;
-
-
-            }
-
-        }
-        return cociente;
-
-
-
-
-    }
 }

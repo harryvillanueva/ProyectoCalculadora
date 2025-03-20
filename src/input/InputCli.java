@@ -2,19 +2,18 @@ package input;
 
 import java.util.Scanner;
 
-public class Input implements InputInterface{
+public class InputCli implements InputInterface{
 
     private int numero;
 
     public int obtenerOpcion(){
-        obtenerOpcionMenu();
-        return numero;
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
 
 
-    private void obtenerOpcionMenu() {
-        Scanner scanner = new Scanner(System.in);
-         numero =scanner.nextInt();
+    public int obtenerOpcionMenu() {
+       return obtenerOpcion();
     }
 
 
