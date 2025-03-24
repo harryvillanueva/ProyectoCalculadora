@@ -21,7 +21,7 @@ public class OutputGui implements OutputInterface{
     @Override
     public void pedirOperando() {
 
-       // JOptionPane.showMessageDialog(null,"ingrese operando");
+       JOptionPane.showMessageDialog(null,"ingrese operando");
 
     }
 

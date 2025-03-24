@@ -24,7 +24,7 @@ public class OperacionesSucesivas extends OperacionesGlobales {
     @Override
     public int multiplicar(int multiplicando, int multiplicador){
 
-        System.out.println("con suma suseciva");
+
         var producto = 0;
 
         for (int i = 0 ; i < multiplicador; i++){

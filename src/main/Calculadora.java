@@ -1,17 +1,13 @@
 package main;
 
 import input.InputCli;
-import input.InputGui;
-import input.InputRandom;
 import input.InputInterface;
 import math.*;
-import output.OutputCli;
 import output.OutputGui;
-import output.OutputRandom;
 import output.OutputInterface;
 import validator.Validador;
 
-public class Main {
+public class Calculadora {
     final static int SUMAR =1;
     final static int RESTAR =2;
     final static int MULTIPLICAR =3;
@@ -29,12 +25,17 @@ public class Main {
     private static OutputInterface output ;
     private static OperacionesGlobales operacion ;
 
+    public Calculadora(
+            InputInterface anInput,
+            OutputInterface anOutput,
+            OperacionesGlobales anOperation
+    ) {
+        input = anInput;
+        output  =  anOutput;
+        operacion = anOperation;
+    }
 
-    public static void main(String[] args) {
-
-        input = new InputCli();
-        output = new OutputCli();
-        operacion = new OperacionesSucesivas();
+    public void run() {
         listaOperandos= new int[2];
         listaVector = new Vector[2];
         listaFloat = new Float[2];

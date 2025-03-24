@@ -26,9 +26,6 @@ public class Operaciones extends OperacionesGlobales {
     @Override
     public int multiplicar(int multiplicando, int multiplicador){
 
-        System.out.println("con multiplicacion normal");
-
-
         return multiplicando*multiplicador;
     }
 
